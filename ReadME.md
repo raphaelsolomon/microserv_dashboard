@@ -30,3 +30,14 @@ curl --location 'http://localhost:3000/api/lambda/calculateTotal/execute' \
     "taxRate": 10,
     "discount": 5
 }'
+
+<!-- Creating a lambda function -->
+curl --location 'http://localhost:3000/api/lamda' \
+--header 'Content-Type: application/json' \
+--data '{
+    "name": "noParams",
+    "functionCode": "async () => { return '\''Hello World'\''; }"
+}'
+
+<!-- executing a lambda function -->
+curl --location --request POST 'http://localhost:3000/api/lambda/noParams/execute'
